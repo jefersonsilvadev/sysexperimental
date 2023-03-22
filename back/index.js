@@ -42,6 +42,7 @@ app.get("/estoque/:id", function(req, res){
 });
 
 
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
   })
