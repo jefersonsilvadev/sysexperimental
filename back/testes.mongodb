@@ -1,4 +1,7 @@
 //seleciona o banco de dados
 use("sysexperimental");
 
-db.estoque.find({Quantidade: {$gt: 5}});
+//db.estoque.find({Quantidade: {$gt: 5} });
+
+db.estoque.find({}).count();
+  

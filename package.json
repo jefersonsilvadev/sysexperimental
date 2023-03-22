@@ -1,7 +1,16 @@
 {
   "dependencies": {
     "express": "^4.18.2",
-    "node": "^19.8.1",
+    "mongodb": "^5.1.0",
     "node-csv": "^0.1.2"
-  }
+  },
+  "name": "sysexperimental",
+  "description": "- Frota \r - Mercadoria\r - Nota Fiscal\r - Login",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
