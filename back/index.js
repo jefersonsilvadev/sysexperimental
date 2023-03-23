@@ -5,9 +5,8 @@ const app = express()
 const port = 3000
 var csv = require('node-csv').createParser();
 
-
+// Instalação do modulo CORS via npm (npm install cors --save) -> um bloqueio de segurança nativo dos navegadores
 var cors = require("cors");
-
 app.use(cors());
 
 

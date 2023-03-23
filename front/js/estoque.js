@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     
     $("#btn-carregar").click(function(){
@@ -29,3 +30,5 @@ $(document).ready(function(){
 
     }); // fim do btn-carregar
 });
+
+// Instalado um servidor front para rodar via servidor -> serve (npm install -g serve)
