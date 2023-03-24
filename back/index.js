@@ -7,7 +7,12 @@ var csv = require('node-csv').createParser();
 
 // Instalação do modulo CORS via npm (npm install cors --save) -> um bloqueio de segurança nativo dos navegadores
 var cors = require("cors");
+
+
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 
 //Conexão da API com o banco de dados
@@ -39,20 +44,71 @@ app.get("/entradas", function(req, res){
     });
 })
 
+
 //route -> rota
 app.get("/estoque", async function(req, res){
     
     const resultado = await estoque.find({}).toArray();
     res.json(resultado);
+
 });
+
+
+//Exportar arquivo csv
+app.get("/estoque-csv", async function(req, res){
+
+    const resultado = await estoque.find({}).toArray();
+
+    let arquivoCSV = "id,nota,destino,produto,quantidade\n";
+
+    resultado.forEach(function(item){
+        arquivoCSV += 
+            item._id + "," +
+            item.nota + "," +
+            item.destino + "," + 
+            item.produto + "," +
+            item.quantidade + "\n";
+
+    });
+
+    res.append("content-type" , "text/csv");
+    res.send(arquivoCSV)
+
+});
+
 
 //Rota dinâmica
 app.get("/estoque/:id", async function(req, res){
-    const id = new ObjectId(req.params.id);
 
+    const id = new ObjectId(req.params.id);
     const resultado = await estoque.find({ _id: id}).toArray();
     res.json(resultado);
+
 });
+
+
+
+//Cadastrar novo item no estoque
+app.post("/estoque-add", async function(req, res) {
+
+    const resultado = await estoque.insertOne(req.body);
+    const origem = req.get("Referer");
+    res.redirect(origem);
+
+});
+
+
+
+// Deletar item
+app.get("/estoque-del/:id", async function(req, res){
+    const id = new ObjectId( req.params.id );
+
+    const resultado = await estoque.deleteOne({ _id: id });
+    
+    const origem = req.get("Referer");
+    res.redirect(origem);
+})
+
 
 
 
