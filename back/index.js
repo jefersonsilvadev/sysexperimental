@@ -1,12 +1,12 @@
 
 //Configurando o servidor Node.js com o modulo Express
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
 var csv = require('node-csv').createParser();
 
 // Instalação do modulo CORS via npm (npm install cors --save) -> um bloqueio de segurança nativo dos navegadores
-var cors = require("cors");
+var cors = require('cors');
 
 
 app.use(cors());
@@ -34,7 +34,7 @@ const ObjectId = mongodb.ObjectId;
 
 app.post("/entradas", function(req, res){
 
-})
+});
 
 //Lendo dados de um arquivo CSV
 app.get("/entradas", function(req, res){
@@ -42,7 +42,7 @@ app.get("/entradas", function(req, res){
     csv.parseFile('estoque.csv', function(erro, valores) {
         res.json(valores);
     });
-})
+});
 
 
 //route -> rota
@@ -81,7 +81,7 @@ app.get("/estoque-csv", async function(req, res){
 app.get("/estoque/:id", async function(req, res){
 
     const id = new ObjectId(req.params.id);
-    const resultado = await estoque.find({ _id: id}).toArray();
+    const resultado = await estoque.findOne({ _id: id});
     res.json(resultado);
 
 });
