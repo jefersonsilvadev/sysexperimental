@@ -47,12 +47,21 @@ $(document).ready(function(){
                 $("#produto").val(dados.produto)
                 $("#quantidade").val(dados.quantidade)
                 $("#destino").val(dados.destino)
+                $("#codigo").val(dados._id)
 
             }); // fim do getJson
 
         });// fim do btn-editar
 
     }); // fim do getJson
+
+
+    // salvar produto
+    $("#btn-salvar").click(function(){
+
+        $("#form-editar").submit();
+
+    }); // fim do btn-salvar
 
 
 });
