@@ -92,7 +92,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
+        <form id="form-editar" action="http://localhost:3000/estoque-up" method="post">
+
+          <input id="codigo" name="codigo" type="hidden" />
 
           <div class="mb-3">
               <label>Num da Nota Fiscal</label>
@@ -126,12 +128,15 @@
               </div>
 
           </div>
-      </form>
+        </form>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button id="btn-salvar" type="button" class="btn btn-primary">Salvar</button>
+        </div>
+        
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
-      </div>
+      
     </div>
   </div>
 </div>

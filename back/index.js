@@ -69,7 +69,7 @@ app.get("/estoque-csv", async function(req, res){
             item.produto + "," +
             item.quantidade + "\n";
 
-    });
+    })
 
     res.append("content-type" , "text/csv");
     res.send(arquivoCSV)
@@ -98,6 +98,27 @@ app.post("/estoque-add", async function(req, res) {
 });
 
 
+// atualiza um registro
+app.post("/estoque-up" , async function(req , res) {
+
+    const codigo = new ObjectId (req.body.codigo);
+
+    const dados = {
+        $set: {
+            nota: req.body.nota,
+            produto: req.body.produto,
+            quantidade: req.body.quantidade,
+            destino: req.body.destino
+        }
+    }
+
+    const resultado = await estoque.updateOne({ _id: codigo} , dados);
+
+    const origem = req.get("Referer");
+    res.redirect(origem);
+    
+});
+
 
 // Deletar item
 app.get("/estoque-del/:id", async function(req, res){
@@ -107,11 +128,11 @@ app.get("/estoque-del/:id", async function(req, res){
     
     const origem = req.get("Referer");
     res.redirect(origem);
-})
+});
 
 
 
 
 app.listen(port, () => {
     console.log(`Rodando o servidor na porta ${port}`)
-  })
+  });
