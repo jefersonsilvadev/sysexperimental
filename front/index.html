@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,7 @@
     <script src="js/bootstrap.js"></script>
 
     <script src="js/estoque.js"></script>
+    <script src="js/painel.js" ></script>
 
 </head>
 <body>
@@ -22,10 +23,10 @@
         <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
         <div class="navbar-nav">
           <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#">Sign out</a>
+            <a class="nav-link px-3" href="#">Sair</a>
           </div>
         </div>
-      </header>
+    </header>
 
       <div class="container-fluid">
         <div class="row">
@@ -44,6 +45,12 @@
                         Entradas
                       </a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="relatorios.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file align-text-bottom" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                        Relatórios
+                      </a>
+                  </li>
 
                   </ul>
                                             
@@ -83,63 +90,68 @@
         </div>
       </div>
 
-      <!-- Modal -->
-<div class="modal fade" id="modal-editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Produto</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="form-editar" action="http://localhost:3000/estoque-up" method="post">
-
-          <input id="codigo" name="codigo" type="hidden" />
-
-          <div class="mb-3">
-              <label>Num da Nota Fiscal</label>
-              <input id="nota" name="nota" type="text" class="form-control"/>
-          </div>
-
-          <div class="mb-3">
-              <label>Destino</label>
-              <select id="destino" name="destino" class="form-select">
-                  <option>Sala A</option>
-                  <option>Sala B</option>
-                  <option>Sala C</option>
-                  <option>Sala D</option>
-              </select>
-          </div>
-         
-          <div class="row">
-              <div class="mb-3 col-9">
-                  <label>Produto</label>
-                  <input id="produto" name="produto" type="text" class="form-control"/>
-              </div>
-
-              <div class="mb-3 col-3">
-                  <label>Quantidade</label>
-                  <input id="quantidade" name="quantidade" type="text" class="form-control"/>
-              </div>
-          </div>
-              <div class="mb-3">
-                  <label>Foto da embalagem</label>
-                  <input type="file" class="form-control"/>
-              </div>
-
-          </div>
-        </form>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button id="btn-salvar" type="button" class="btn btn-primary">Salvar</button>
-        </div>
-        
-      </div>
-      
+    <div class="container text-end" >
+      <hr />
+      <span id="data-hora" >27/03/2023 19:34:15</span>
     </div>
-  </div>
-</div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modal-editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Produto</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="form-editar" action="http://localhost:3000/estoque-up" method="post">
+
+                <input id="codigo" name="codigo" type="hidden" />
+
+                <div class="mb-3">
+                    <label>Num da Nota Fiscal</label>
+                    <input id="nota" name="nota" type="text" class="form-control"/>
+                </div>
+
+                <div class="mb-3">
+                    <label>Destino</label>
+                    <select id="destino" name="destino" class="form-select">
+                        <option>Sala A</option>
+                        <option>Sala B</option>
+                        <option>Sala C</option>
+                        <option>Sala D</option>
+                    </select>
+                </div>
+              
+                <div class="row">
+                    <div class="mb-3 col-9">
+                        <label>Produto</label>
+                        <input id="produto" name="produto" type="text" class="form-control"/>
+                    </div>
+
+                    <div class="mb-3 col-3">
+                        <label>Quantidade</label>
+                        <input id="quantidade" name="quantidade" type="text" class="form-control"/>
+                    </div>
+                </div>
+                    <div class="mb-3">
+                        <label>Foto da embalagem</label>
+                        <input type="file" class="form-control"/>
+                    </div>
+
+                </div>
+              </form>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="btn-salvar" type="button" class="btn btn-primary">Salvar</button>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
 
 </body>
 </html>

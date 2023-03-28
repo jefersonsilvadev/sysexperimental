@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <script src="js/login.js" ></script>
+
+    <style>
+
+        .form-login {
+            max-width: 300px;
+            padding-top: 100px; 
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <main class="form-login w-100 m-auto">
+                  
+          <h1 class="h3 mb-3 fw-normal">Entrar no sistema</h1>
+
+          <div id="alert-login" class="alert alert-danger" role="alert">
+            Usuário ou Senha incorretos!
+          </div>
+      
+          <div class="form-floating">
+            <input name="email" type="text" class="form-control" id="email" placeholder="name@example.com">
+            <label for="floatingInput">Email</label>
+          </div>
+          <div class="form-floating">
+            <input name="senha" type="password" class="form-control" id="senha" placeholder="Password">
+            <label for="floatingPassword">Senha</label>
+          </div>
+      
+          <div class="checkbox mb-3">
+            
+          </div>
+          <button id="btn-entrar" class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+          <p class="mt-5 mb-3 text-body-secondary">© 2017–2023</p>
+
+      </main>
+
+
+</body>
+</html>

@@ -131,8 +131,19 @@ app.get("/estoque-del/:id", async function(req, res){
 });
 
 
+// Rota de login
+app.post("/login" , function(req, res){
 
+    var usuario = req.body.email;
+    var senha = req.body.senha;
+    
+    if( usuario == "edir" && senha =="123") {
+        res.send({ status: "ok"});
+    } else {
+        res.send({ status: "erro" , "mensagem": "Usuário ou senha não encontrados"});
+    }
+});
 
 app.listen(port, () => {
     console.log(`Rodando o servidor na porta ${port}`)
-  });
+}); 
