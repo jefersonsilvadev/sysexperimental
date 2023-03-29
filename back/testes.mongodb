@@ -3,5 +3,15 @@ use("sysexperimental");
 
 //db.estoque.find({Quantidade: {$gt: 5} });
 
-db.estoque.find({}).count();
+//db.estoque.find({}).count();
+
+//db.createCollection("usuarios");
+
+//db.usuarios.insertOne({
+  // _id: "1234@prof.com",
+   // senha: "1234",
+  //  nome: "Edir",
+  //  ultimoLogin: null
+//});
   
+db.usuarios.find({});
