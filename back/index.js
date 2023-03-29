@@ -26,6 +26,9 @@ const estoque = conexao.db("sysexperimental").collection("estoque");
 //Importando o módulo do ObjectId -> BSON
 const ObjectId = mongodb.ObjectId;
 
+//Importando criptografia
+const sha1 = require('sha1');
+
 //CRUD
 // Create -> Criar -> .post
 // Read -> Ler -> .get
@@ -132,12 +135,19 @@ app.get("/estoque-del/:id", async function(req, res){
 
 
 // Rota de login
-app.post("/login" , function(req, res){
+app.post("/login" , async function(req, res){
 
     var usuario = req.body.email;
     var senha = req.body.senha;
-    
-    if( usuario == "edir" && senha =="123") {
+
+    var hash = sha1(senha);
+
+    const usuarios = conexao.db("sysexperimental").collection("usuarios");
+
+    var logado = await usuarios.findOne({ _id:usuario, senha:hash})
+
+       
+    if(logado != null) {
         res.send({ status: "ok"});
     } else {
         res.send({ status: "erro" , "mensagem": "Usuário ou senha não encontrados"});

@@ -26,4 +26,11 @@ $(document).ready(function (){
 
     setInterval(exibeData, 500);
 
+    $("#btn-logout").click(function(){
+
+        sessionStorage.clear();
+        location.href="login.html";
+
+    });
+
 });

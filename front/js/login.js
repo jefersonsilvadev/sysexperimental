@@ -15,13 +15,12 @@ $(document).ready(function(){
         {
             console.log(retorno);
 
-            if (retorno.status == "erro")
+            if (retorno.status == "ok")
             {
-                $("#alert-login").show();
-            } else {
-
                 sessionStorage.setItem("usuario", "logado");
                 location.href = "index.html";
+            } else {
+                $("#alert-login").show();
             }
         })
 
